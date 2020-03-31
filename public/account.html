@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Manager</title>
+
+    <link href="css/master.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!--  Firebase SDK  -->
+    <script defer src="/__/firebase/7.12.0/firebase-app.js"></script>
+    <!--  Extra Firebase Features  -->
+    <script defer src="/__/firebase/7.12.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.12.0/firebase-firestore.js"></script>
+</head>
+    <body onload="redirectCheck(); getUserInfo(); getPasswords(); refreshOnLoad();">
+        <div class="nav-wrapper">
+            <div class="nav-left">
+                <a href="index.html">home</a>
+            </div>
+            <div class="nav-right">
+                <div id="account">
+                    <a href="account.html">account</a>
+                </div>
+                <div id="logout">
+                    <a id="btn-style2" onclick="signOut()">logout</a>
+                </div>
+                <div id="signup">
+                    <a href="signup.html">signup</a>
+                </div>
+                <div id="login">
+                    <a id="btn-style" href="login.html">login</a>
+                </div>
+            </div>
+        </div>
+        <div class="acc-container">
+            <div id="counter"></div>
+            <div class="acc-form">
+                <label for="name-input-account">
+                    <input type="text" placeholder="Password Name" id="name-input-account">
+                </label>
+                <label for="password-input-account">
+                    <input type="password" placeholder="Password" id="password-input-account">
+                </label>
+                <button onclick="savePassword();">Save</button>
+
+                <div class="separator"><i>Privacy</i></div>
+
+                <button onclick="refreshOnAction();">Refresh</button>
+                <button onclick="changeView();" id="show-btn" name="show">Show Passwords</button>
+
+                <div class="separator"><i>Account Details</i></div>
+
+                <div class="acc-info">
+                    <p id="acc-name"></p>
+                    <p id="acc-email"></p>
+                </div>
+
+            </div>
+            <div style="flex: .1;"></div>
+            <div class="acc-passwords" id="password-container">
+                <div id="pass-left">
+                    <p id="my-pwds">Once you create a password it will appear here!</p>
+                </div>
+                <div id="pass-right"></div>
+            </div>
+        </div>
+
+        <!--  ///  SCRIPTS  ///  -->
+        <!--  App  -->
+        <script src="scripts/firebase/redirect.js"></script>
+        <script src="scripts/firebase/auth.js"></script>
+        <script src="scripts/firebase/firestore.js"></script>
+    </body>
+</html>
